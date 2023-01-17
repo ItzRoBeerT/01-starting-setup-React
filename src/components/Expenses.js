@@ -1,6 +1,6 @@
 import ExpenseItem from "./ExpenseItem";
-import './NewComponentExpenses.css';
-function NewComponentExpenses() {
+import './Expenses.css';
+function Expenses() {
   const expenses = [
     {id:'e1', title: "Toilet Paper", amount: 94.5, date: new Date(2021, 4, 21) },
     {id:'e2', title: "New TV", amount: 799.49, date: new Date(2021, 3, 14) },
@@ -34,4 +34,4 @@ function NewComponentExpenses() {
   );
 }
 
-export default NewComponentExpenses;
+export default Expenses;
