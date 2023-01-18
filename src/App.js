@@ -1,7 +1,8 @@
 import React from 'react';
 import Expenses from './components/Expenses/Expenses';
 
-function App() {
+//You can use function App(){} too, there is no changes on use arrow function
+const App = () => {
   const expenses = [
     {id:'e1', title: "Toilet Paper", amount: 94.5, date: new Date(2021, 4, 21) },
     {id:'e2', title: "New TV", amount: 799.49, date: new Date(2021, 3, 14) },
