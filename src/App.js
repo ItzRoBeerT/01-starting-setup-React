@@ -1,6 +1,6 @@
 import React from 'react';
 import Expenses from './components/Expenses/Expenses';
-
+import NewExpense from './components/NewExpense/NewExpense';
 //You can use function App(){} too, there is no changes on use arrow function
 const App = () => {
   const expenses = [
@@ -12,7 +12,7 @@ const App = () => {
 
   return (
     <div>
-      <h2>Let's get started!</h2>
+      <NewExpense/>
       <Expenses items={expenses}/>
     </div>
   );
