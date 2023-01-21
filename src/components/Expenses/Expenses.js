@@ -1,42 +1,48 @@
-import React, {useState} from 'react'
-import ExpenseItem from "./ExpenseItem";
+import React, { useState } from "react";
+
 import Card from "../UI/Card";
 import "./Expenses.css";
 import ExpensesFilter from "../ExpenseFilter/ExpensesFilter";
+import ExpensesList from "./ExpensesList";
 
 const Expenses = (props) => {
-
-  const [filteredYear,setFilteredYear] = useState('2020');
+  const [filteredYear, setFilteredYear] = useState("2020");
 
   const filterYearSelected = (selectedYear) => {
     setFilteredYear(selectedYear);
-   
   };
 
+  const filteredEsxpenses = props.items.filter((expense) => {
+    console.log(filteredYear);
+    return expense.date.getFullYear().toString() === filteredYear;
+  });
+
+  //si se cumple la condicion muestra el parrafo
+  //{filteredEsxpenses.length===0 && <p>No expenses found.</p>}
+   
+/*Other way
+  {filteredEsxpenses.length === 0 ? (
+    expensesContent
+  ) : (
+    filteredEsxpenses.map((expense) => (
+      <ExpenseItem
+        key={expense.id}
+        title={expense.title}
+        amount={expense.amount}
+        date={expense.date}
+      />
+    ))
+  )}
+ */
+  
   return (
     <div>
       <Card className="expenses">
-        <ExpensesFilter selected={filteredYear} onYearSelected={filterYearSelected} />
-        <ExpenseItem
-          title={props.items[0].title}
-          amount={props.items[0].amount}
-          date={props.items[0].date}
+        <ExpensesFilter
+          selected={filteredYear}
+          onYearSelected={filterYearSelected}
         />
-        <ExpenseItem
-          title={props.items[1].title}
-          amount={props.items[1].amount}
-          date={props.items[1].date}
-        />
-        <ExpenseItem
-          title={props.items[2].title}
-          amount={props.items[2].amount}
-          date={props.items[2].date}
-        />
-        <ExpenseItem
-          title={props.items[3].title}
-          amount={props.items[3].amount}
-          date={props.items[3].date}
-        />
+        <ExpensesList items={filteredEsxpenses} />
       </Card>
     </div>
   );
